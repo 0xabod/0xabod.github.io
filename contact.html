@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | 0xAbdullah</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@300;400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <div class="matrix-bg" id="matrix-canvas"></div>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">0xAbdullah</div>
+            <div class="nav-container">
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="about.html" data-en="About" data-ar="من أنا">About</a></li>
+                    <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+                    <li><a href="projects.html" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                    <li><a href="blog.html" data-en="Blog" data-ar="المدونة">Blog</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-ar="اتصل بي">Contact</a></li>
+                </ul>
+                <div class="lang-toggle" id="lang-toggle">
+                    <span class="lang-en active">EN</span>
+                    <span>/</span>
+                    <span class="lang-ar">AR</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title" data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</h2>
+            <p class="terminal-text" data-en="$> Let's discuss how I can help secure your digital assets" data-ar="$> دعنا نناقش كيف يمكنني المساعدة في تأمين أصولك الرقمية">$> Let's discuss how I can help secure your digital assets</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</h3>
+                    <p data-en="Feel free to reach out through any of the following channels:" data-ar="لا تتردد في التواصل من خلال أي من القنوات التالية:">Feel free to reach out through any of the following channels:</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
+                                <p>contact@0xabdullah.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">🔐</div>
+                            <div class="contact-text">
+                                <h4 data-en="PGP Key" data-ar="مفتاح PGP">PGP Key</h4>
+                                <p data-en="For secure communications" data-ar="للاتصالات الآمنة">For secure communications</p>
+                                <a href="#" class="pgp-link" data-en="Download PGP Key" data-ar="تحميل مفتاح PGP">Download PGP Key</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">🔗</div>
+                            <div class="contact-text">
+                                <h4 data-en="Social Media" data-ar="وسائل التواصل الاجتماعي">Social Media</h4>
+                                <div class="social-contact-links">
+                                    <a href="#">GitHub</a>
+                                    <a href="#">Twitter</a>
+                                    <a href="#">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="response-commitment">
+                        <h4 data-en="Response Time" data-ar="وقت الاستجابة">Response Time</h4>
+                        <p data-en="I typically respond to inquiries within 24-48 hours during business days." data-ar="عادةً ما أرد على الاستفسارات خلال 24-48 ساعة خلال أيام العمل.">I typically respond to inquiries within 24-48 hours during business days.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3 data-en="Send a Message" data-ar="إرسال رسالة">Send a Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-en="Name" data-ar="الاسم">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" data-en="Subject" data-ar="الموضوع">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-ar="الرسالة">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group security-check">
+                            <label data-en="Security Check: What is 5 + 3?" data-ar="التحقق الأمني: ما هو ناتج 5 + 3؟">Security Check: What is 5 + 3?</label>
+                            <input type="number" id="securityCheck" name="securityCheck" required>
+                        </div>
+                        
+                        <button type="submit" class="btn" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" title="GitHub"><i class="icon-github">GitHub</i></a>
+            <a href="#" title="Twitter"><i class="icon-twitter">Twitter</i></a>
+            <a href="#" title="LinkedIn"><i class="icon-linkedin">LinkedIn</i></a>
+        </div>
+        <div class="copyright" data-en="&copy; 2025 All Rights Reserved to 0xAbdullah" data-ar="&copy; 2025 جميع الحقوق محفوظة لـ 0xAbdullah">
+            &copy; 2025 All Rights Reserved to 0xAbdullah
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/matrix.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
