@@ -1,10 +1,7 @@
 @font-face {
     font-family: 'HackerFont';
-    src: local('Fira Code'),
-         url('fonts/FiraCode.woff2') format('woff2'),
-         url('fonts/FiraCode.ttf') format('truetype');
+    src: url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 }
-
 :root {
     --primary-color: #0f0;
     --secondary-color: #00b7ff;
