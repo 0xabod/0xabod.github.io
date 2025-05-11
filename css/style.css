@@ -1,27 +1,24 @@
+/* ===== Core Styles ===== */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 
 :root {
+    --primary-color: #0f0;
+    --secondary-color: #00b7ff;
+    --bg-color: #0a0a0a;
+    --text-color: #f0f0f0;
+    --accent-color: #ff3a3a;
+    --card-bg: rgba(20, 20, 20, 0.8);
+    --terminal-bg: rgba(5, 5, 5, 0.9);
     --primary-font: 'Fira Code', monospace;
     --secondary-font: 'Fira Code', monospace;
     --arabic-font: 'Fira Code', monospace;
-}
-
-/* ===== Core Styles ===== */
-:root {
-    --primary-color: #0f0; /* Green */
-    --secondary-color: #00b7ff; /* Light Blue */
-    --bg-color: #0a0a0a; /* Black */
-    --text-color: #f0f0f0; /* Light White */
-    --accent-color: #ff3a3a; /* Red for warnings */
-    --card-bg: rgba(20, 20, 20, 0.8);
-    --terminal-bg: rgba(5, 5, 5, 0.9);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--primary-font);
 }
 
 body {
@@ -31,10 +28,9 @@ body {
     overflow-x: hidden;
 }
 
-/* RTL support for Arabic */
 body.rtl {
     direction: rtl;
-    font-family: 'Cairo', sans-serif;
+    font-family: var(--arabic-font);
 }
 
 .container {
