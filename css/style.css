@@ -417,8 +417,8 @@ body.rtl .timeline::before {
 
 .timeline-date {
     width: 120px;
-    padding-right: 1rem;
-    text-align: right;
+    padding-right: 2rem;
+    text-align: left;
     font-weight: bold;
     color: var(--primary-color);
 }
