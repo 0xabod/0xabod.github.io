@@ -416,12 +416,14 @@ body.rtl .timeline::before {
 }
 
 .timeline-date {
-    width: 50px;
+    width: auto; /* أو جرب 100px مثلاً */
     padding-right: 2rem;
     text-align: right;
     font-weight: bold;
     color: var(--primary-color);
+    white-space: nowrap; /* يمنع التفاف النص */
 }
+
 
 body.rtl .timeline-date {
     text-align: left;
