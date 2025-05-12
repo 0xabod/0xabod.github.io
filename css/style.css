@@ -998,13 +998,13 @@ footer {
 /* ===== Typewriter effect ===== */
 .typewriter {
     display: inline-block;
-    width: 25ch; /* عدّل الرقم حسب طول الجملة */
+    width: 30ch; /* عدّل الرقم حسب طول الجملة */
     overflow: hidden;
     border-right: 0.15em solid var(--primary-color);
     white-space: nowrap;
     letter-spacing: 0.1em;
     animation: 
-        typing 3.5s steps(25, end),
+        typing 3.5s steps(30, end),
         blink-caret 0.75s step-end infinite;
 }
 
