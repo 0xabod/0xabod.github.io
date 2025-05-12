@@ -1,25 +1,62 @@
+<!-- 404.html -->
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>الصفحة غير موجودة</title>
-  <style>
-    body {
-      font-family: Tahoma, sans-serif;
-      background-color: #111;
-      color: #0f0;
-      text-align: center;
-      padding: 100px;
-    }
-    a {
-      color: #0ff;
-      text-decoration: none;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>404 | Page Not Found</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>خطأ 404</h1>
-  <p>عذرًا، الصفحة التي تبحث عنها غير موجودة.</p>
-  <a href="/">العودة إلى الصفحة الرئيسية</a>
+    <!-- Matrix Background -->
+    <div class="matrix-bg" id="matrix-canvas"></div>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">0xAbod</div>
+            <div class="nav-container">
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="https://0xabod.github.io/">Home</a></li>
+                    <li><a href="about/">About</a></li>
+                    <li><a href="services/">Services</a></li>
+                    <li><a href="projects/">Projects</a></li>
+                    <li><a href="contact/">Contact</a></li>
+                </ul>
+                <div class="lang-toggle" id="lang-toggle">
+                    <span class="lang-en active">EN</span>
+                    <span>/</span>
+                    <span class="lang-ar">AR</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 404 Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="typewriter">Error 404 - Page Not Found</h1>
+            <p class="terminal-text">
+                $> The page you are looking for doesn't exist.<br />
+                <span style="color: #00b7ff;">Return</span> to <a href="/" style="color: #0ff;">Home</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/0xabod" target="_blank"><i class="icon-github"></i> GitHub</a>
+            <a href="mailto:0xabod5@gmail.com"><i class="icon-envelope"></i> Email</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 All Rights Reserved to 0xAbod
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/matrix.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
