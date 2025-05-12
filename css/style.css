@@ -416,14 +416,15 @@ body.rtl .timeline::before {
 }
 
 .timeline-date {
-    width: auto; /* أو جرب 100px مثلاً */
+    width: auto;
     padding-right: 2rem;
-    margin-top: 50rem;
+    padding-top: 0.5rem;  /* ✅ ينزل النص شوي داخل العنصر */
     text-align: right;
     font-weight: bold;
     color: var(--primary-color);
-    white-space: nowrap; /* يمنع التفاف النص */
+    white-space: nowrap;
 }
+
 
 
 body.rtl .timeline-date {
