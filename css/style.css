@@ -393,7 +393,6 @@ body.rtl .certifications-list {
 .timeline {
     position: relative;
     margin-top: 2rem;
-    padding-left: 120px; /* إضافة مساحة للتاريخ */
 }
 
 .timeline::before {
@@ -403,49 +402,37 @@ body.rtl .certifications-list {
     background-color: var(--secondary-color);
     top: 0;
     bottom: 0;
-    left: 120px; /* محاذاة مع عرض التاريخ */
-    transform: translateX(-50%); /* توسيط الخط */
-}
-
-body.rtl .timeline {
-    padding-left: 0;
-    padding-right: 120px;
+    left: 120px;
 }
 
 body.rtl .timeline::before {
     left: auto;
     right: 120px;
-    transform: translateX(50%);
 }
 
 .timeline-item {
     display: flex;
-    margin-bottom: 3rem;
-    align-items: flex-start;
+    margin-bottom: 2rem;
 }
 
 .timeline-date {
-    width: 120px;
-    padding: 0 1rem;
+    width: auto; /* أو جرب 100px مثلاً */
+    padding-right: 2rem;
     text-align: right;
     font-weight: bold;
     color: var(--primary-color);
-    position: absolute;
-    left: 0;
-    transform: translateX(-120px);
+    white-space: nowrap; /* يمنع التفاف النص */
 }
+
 
 body.rtl .timeline-date {
     text-align: left;
-    left: auto;
-    right: 0;
-    transform: translateX(120px);
+    padding-right: 0;
+    padding-left: 2rem;
 }
 
 .timeline-content {
-    position: relative;
     padding-left: 2rem;
-    width: 100%;
 }
 
 body.rtl .timeline-content {
@@ -453,35 +440,9 @@ body.rtl .timeline-content {
     padding-right: 2rem;
 }
 
-.certificate-img {
-    width: 300px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 768px) {
-    .timeline {
-        padding-left: 90px;
-    }
-    
-    .timeline::before {
-        left: 90px;
-    }
-    
-    .timeline-date {
-        width: 90px;
-        transform: translateX(-90px);
-    }
-    
-    body.rtl .timeline-date {
-        transform: translateX(90px);
-    }
-    
-    .certificate-img {
-        width: 100%;
-        max-width: 300px;
-    }
+.timeline-content h4 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
 }
 
 /* ===== Services Page ===== */
