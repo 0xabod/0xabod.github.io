@@ -997,6 +997,7 @@ footer {
 
 /* ===== Typewriter effect ===== */
 .typewriter {
+    display: inline-block;
     width: 20ch; /* عدّل الرقم حسب طول الجملة */
     overflow: hidden;
     border-right: 0.15em solid var(--primary-color);
