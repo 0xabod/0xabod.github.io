@@ -418,12 +418,14 @@ body.rtl .timeline::before {
 .timeline-date {
     width: auto;
     padding-right: 2rem;
-    padding-top: 0.5rem;  /* ✅ ينزل النص شوي داخل العنصر */
+    padding-top: 0.5rem;
+    align-self: flex-start;
     text-align: right;
     font-weight: bold;
     color: var(--primary-color);
     white-space: nowrap;
 }
+
 
 
 
