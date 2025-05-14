@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السمنة المفرطة - دليلك الصحي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background: linear-gradient(45deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* خلفية متحركة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(52, 152, 219, 0.1) 50%, transparent 70%);
+            animation: backgroundMove 8s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes backgroundMove {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        /* رأس الصفحة */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #3498db, #e74c3c, #f39c12);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* زر التمرير */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #3498db;
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        /* الحاوي الرئيسي */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* الأقسام */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-content {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .section-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: #3498db;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #e74c3c);
+            border-radius: 5px;
+        }
+
+        /* بطاقات المحتوى */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .card:hover::before {
+            animation: shimmer 0.6s ease;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(45deg) translate(-100%, -100%); opacity: 1; }
+            100% { transform: rotate(45deg) translate(100%, 100%); opacity: 0; }
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+        }
+
+        .card h3 {
+            color: #f39c12;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        /* مؤشر التقدم */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #e74c3c, #f39c12);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* أيقونات متحركة */
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .icon:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+        .icon:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
+        .icon:nth-child(4) { top: 40%; left: 70%; animation-delay: 1s; }
+        .icon:nth-child(5) { top: 30%; left: 50%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(240deg);
+            }
+        }
+
+        /* تحذير متحرك */
+        .warning-box {
+            background: linear-gradient(45deg, rgba(231, 76, 60, 0.2), rgba(243, 156, 18, 0.2));
+            border: 2px solid #e74c3c;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            animation: warning-pulse 1.5s infinite;
+        }
+
+        @keyframes warning-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* تأثيرات الماوس */
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-element:hover {
+            filter: brightness(1.2) saturate(1.2);
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+        }
+
+        /* تحسينات الأداء */
+        .gpu-optimized {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- مؤشر التقدم -->
+    <div class="progress-bar"></div>
+
+    <!-- الأيقونات المتحركة -->
+    <div class="floating-icons">
+        <div class="icon">🏃‍♂️</div>
+        <div class="icon">🥗</div>
+        <div class="icon">💊</div>
+        <div class="icon">💚</div>
+        <div class="icon">⚖️</div>
+    </div>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>السمنة المفرطة</h1>
+            <p>رحلتك نحو حياة صحية وسعيدة تبدأ من هنا</p>
+        </div>
+        <div class="scroll-indicator">⬇</div>
+    </section>
+
+    <!-- تعريف السمنة -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <h2>ما هي السمنة المفرطة؟</h2>
+                <div class="cards-grid">
+                    <div class="card interactive-element">
+                        <h3>التعريف الطبي</h3>
+                        <p>السمنة المفرطة هي حالة طبية تتميز بتراكم الدهون بشكل مفرط في الجسم، مما يؤثر سلبياً على الصحة العامة.</p>
+                        <p>تُقاس عادة بمؤشر كتلة الجسم (BMI) الذي يكون أكبر من 30.</p>
+                    </div>
+                    <div class="card interactive-element">
+                        <h3>احصائيات مهمة</h3>
+                        <p>تُعتبر السمنة من أهم التحديات الصحية في العصر الحديث، وتؤثر على مئات الملايين حول العالم.</p>
+                        <p>معدلات السمنة في تزايد مستمر في جميع أنحاء العالم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الأسباب -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <h2>أسباب السمنة المفرطة</h2>
+                <div class="cards-grid">
+                    <div class="card interactive-element">
+                        <h3>العوامل الوراثية</h3>
+                        <ul>
+                            <li>الجينات تؤثر على معدل الأيض</li>
+                            <li>تاريخ العائلة المرضي</li>
+                            <li>الاستعداد الوراثي لتخزين الدهون</li>
+                        </ul>
+                    </div>
+                    <div class="card interactive-element">
+                        <h3>نمط الحياة</h3>
+                        <ul>
+                            <li>تناول الطعام المعالج والسكريات</li>
+                            <li>قلة النشاط البدني</li>
+                            <li>عادات الأكل السيئة</li>
+                            <li>قضاء ساعات طويلة في الجلوس</li>
+                        </ul>
+                    </div>
+                    <div class="card interactive-element">
+                        <h3>العوامل النفسية</h3>
+                        <ul>
+                            <li>الإجهاد والتوتر</li>
+                            <li>الاكتئاب والقلق</li>
+                            <li>الأكل العاطفي</li>
+                            <li>اضطرابات النوم</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- المخاطر الصحية -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <h2>المخاطر والمضاعفات</h2>
+                <div class="warning-box">
+                    <p><strong>تحذير مهم:</strong> السمنة المفرطة ترتبط بمخاطر صحية خطيرة قد تهدد الحياة.</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="card interactive-element">
+                        <h3>الأمراض القلبية</h3>
+                        <ul>
+                            <li>ارتفاع ضغط الدم</li>
+                            <li>أمراض الشرايين التاجية</li>
+                            <li>فشل القلب</li>
+                        </ul>
+                    </div>
+                    <div class="card interactive-element">
+                        <h3>الأمراض الأيضية</h3>
+                        <ul>
+                            <li>السكري من النوع الثاني</li>
+                            <li>مقاومة الأنسولين</li>
+                            <li>اضطرابات الدهون</li>
+                        </ul>
+                    </div>
+                    <div class="card interactive-element">
+                        <h3>مشاكل أخرى</h3>
+                        <ul>
+                            <li>انقطاع النفس أثناء النوم</li>
+                            <li>أمراض المفاصل</li>
+                            <li>زيادة خطر الإصابة ببعض السرطانات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الحلول والعلاج -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <h2>طرق الوقاية والعلاج</h2>
+                <div class="cards-grid">
+                    <div class="card interactive-element">
+                        <h3>النظام الغذائي</h3>
+                        <ul>
+                            <li>تناول وجبات متوازنة ومتنوعة</li>
+                            <li>زيادة الخضروات والفواكه</li>
+                            <li>تقليل السكر والدهون المشبعة</li>
+                            <li>شرب الماء بكثرة</li>
+                        </ul>
+                    </div>
+                    <div class="card interactive-element">
+                        <h3>النشاط البدني</h3>
+                        <ul>
+                            <li>ممارسة الرياضة بانتظام</li>
+                            <li>المشي 150 دقيقة أسبوعياً</li>
+                            <li>تمارين القوة</li>
+                            <li>الأنشطة اليومية النشطة</li>
+                        </ul>
+                    </div>
+                    <div class="card interactive-element">
+                        <h3>الصحة النفسية</h3>
+                        <ul>
+                            <li>إدارة التوتر والضغوط</li>
+                            <li>النوم الكافي</li>
+                            <li>طلب الدعم النفسي</li>
+                            <li>تجنب الأكل العاطفي</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // تأثير مؤشر التقدم
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.progress-bar').style.width = scrolled + '%';
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+
+        // تأثير ظهور العناصر عند التمرير
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.section-content');
+            elements.forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('load', handleScrollAnimation);
+
+        // تأثير التمرير السلس عند النقر على مؤشر السهم
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('.section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // تأثيرات الماوس للبطاقات
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.transform = `
+                    translateY(-10px) 
+                    rotateX(${(y - rect.height / 2) / 20}deg) 
+                    rotateY(${(x - rect.width / 2) / 20}deg)
+                `;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-10px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // تحسين الأداء بإستخدام الـ Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-content').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
