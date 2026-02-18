@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Page Not Found | Gravity</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-glow: #00aaff;
+    --purple-glow: #8800cc;
+    --white: #e8eaf0;
+    --dim: #aab0c0;
+    --bg: #000008;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 700;
+    color: var(--blue-glow);
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: var(--dim);
+    margin-bottom: 40px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 14px 36px;
+    border: 1px solid var(--blue-glow);
+    color: var(--blue-glow);
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blue-glow);
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+  }
+
+  a:hover { color: #000; }
+  a:hover::before { transform: translateX(0); }
+
+  /* ambient glows */
+  .glow-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,170,255,0.3) 0%, transparent 70%);
+    filter: blur(100px);
+    animation: float 6s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  .glow-circle:nth-child(1) { top: 20%; left: 10%; }
+  .glow-circle:nth-child(2) { bottom: 15%; right: 5%; background: radial-gradient(circle, rgba(136,0,204,0.3) 0%, transparent 70%); }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow-circle"></div>
+<div class="glow-circle"></div>
+
+<h1>404</h1>
+<p>Oops! The page you are looking for does not exist.</p>
+<a href="index.html">Go Back Home →</a>
+
+</body>
+</html>
